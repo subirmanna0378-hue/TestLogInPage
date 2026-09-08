@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import logo from '../photo/Logo.jpg'
 
 const App = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -11,7 +12,9 @@ const App = () => {
     event.preventDefault()
     setMessage(authMode === 'signin'
       ? 'Welcome back. Your account is ready to continue.'
-      : 'Your account has been created successfully.')
+      : authMode === 'signup'
+        ? 'Your account has been created successfully.'
+        : 'If an account exists for that email, we sent a password reset link.')
   }
 
   const showSignUp = () => {
@@ -26,39 +29,32 @@ const App = () => {
     setShowPassword(false)
   }
 
+  const showForgotPassword = () => {
+    setAuthMode('forgot')
+    setMessage('')
+    setShowPassword(false)
+  }
+
   return (
     <main className="login-page">
       <section className="login-showcase" aria-label="Product introduction">
-        <div className="brand-mark" aria-label="Test home">
-          <span className="brand-mark-icon">T</span>
-          <span>Test</span>
+        <div className="brand-mark" aria-label="Ablet Biotech pvt. Ltd home">
+          <img className="brand-mark-icon" src={logo} alt="" />
+          <span>Ablet Biotech pvt. Ltd</span>
         </div>
 
         <div className="showcase-copy">
-          <p className="eyebrow">Your ideas, in focus</p>
-          <h1>Make space for what matters.</h1>
-          <p className="showcase-description">
-            Test brings your projects, notes, and next steps together in one calm,
-            considered workspace.
-          </p>
+          <h1>We Lead to Excellence</h1>
         </div>
 
-        <div className="showcase-note">
-          <span className="note-line" />
-          <span>Designed for your best work</span>
-        </div>
+        <div className="showcase-note-spacer" aria-hidden="true" />
       </section>
 
       <section className="login-panel">
         <div className="login-card">
-          <div className="mobile-brand brand-mark" aria-label="Test home">
-            <span className="brand-mark-icon">T</span>
-            <span>Test</span>
-          </div>
           <div className="form-heading">
-            <p className="eyebrow">{authMode === 'signin' ? 'Welcome back' : 'Start your journey'}</p>
-            <h2>{authMode === 'signin' ? 'Sign in to Test' : 'Create your Test account'}</h2>
-            <p>{authMode === 'signin' ? 'Pick up right where you left off.' : 'A thoughtful workspace for everything ahead.'}</p>
+            <p className="eyebrow">{authMode === 'signin' ? 'Welcome back' : authMode === 'signup' ? 'Start your journey' : 'Reset access'}</p>
+            <h2>{authMode === 'signin' ? 'Sign in to Ablet Biotech pvt. Ltd' : authMode === 'signup' ? 'Welcome to Ablet Biotech pvt. Ltd' : 'Reset your password'}</h2>
           </div>
 
           <form onSubmit={handleSubmit}>
@@ -71,28 +67,30 @@ const App = () => {
             <label htmlFor="email">Email address</label>
             <input id="email" name="email" type="email" placeholder="you@example.com" autoComplete="email" required />
 
-            <div className="label-row">
-              <label htmlFor="password">Password</label>
-              {authMode === 'signin' && <a href="#forgot-password">Forgot password?</a>}
-            </div>
-            <div className="password-field">
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                placeholder="Enter your password"
-                autoComplete="current-password"
-                required
-              />
-              <button
-                className="password-toggle"
-                type="button"
-                onClick={() => setShowPassword((current) => !current)}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
-              >
-                {showPassword ? 'Hide' : 'Show'}
-              </button>
-            </div>
+            {authMode !== 'forgot' && <>
+              <div className="label-row">
+                <label htmlFor="password">Password</label>
+                {authMode === 'signin' && <button className="text-button forgot-button" type="button" onClick={showForgotPassword}>Forgot password?</button>}
+              </div>
+              <div className="password-field">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  autoComplete="current-password"
+                  required
+                />
+                <button
+                  className="password-toggle"
+                  type="button"
+                  onClick={() => setShowPassword((current) => !current)}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? 'Hide' : 'Show'}
+                </button>
+              </div>
+            </>}
 
             {authMode === 'signup' && (
               <>
@@ -111,13 +109,13 @@ const App = () => {
             </label>}
 
             <button className="submit-button" type="submit">
-              {authMode === 'signin' ? 'Sign in' : 'Create account'} <span aria-hidden="true">-&gt;</span>
+              {authMode === 'signin' ? 'Sign in' : authMode === 'signup' ? 'Create account' : 'Send reset link'} <span aria-hidden="true">-&gt;</span>
             </button>
             {message && <p className="form-message" role="status">{message}</p>}
           </form>
 
           <p className="signup-prompt">
-            {authMode === 'signin' ? 'New to Test? ' : 'Already have an account? '}
+            {authMode === 'signin' ? 'New to Ablet Biotech pvt. Ltd? ' : authMode === 'signup' ? 'Already have an account? ' : 'Remember your password? '}
             <button className="text-button" type="button" onClick={authMode === 'signin' ? showSignUp : showSignIn}>
               {authMode === 'signin' ? 'Create an account' : 'Sign in'}
             </button>

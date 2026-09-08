@@ -12,19 +12,15 @@
 	justify-content: space-between;
 	overflow: hidden;
 	padding: 42px clamp(36px, 6vw, 96px) 48px;
-	color: #f8f5ec;
-	background: #17463e;
+	color: #000;
+	background: #fff;
 }
 
-.login-showcase::after {
+.login-showcase::before {
 	position: absolute;
-	right: -18%;
-	bottom: -16%;
-	width: 78%;
-	aspect-ratio: 1;
-	border: 1px solid rgba(238, 191, 112, 0.4);
-	border-radius: 50%;
-	box-shadow: 0 0 0 42px rgba(238, 191, 112, 0.06), 0 0 0 84px rgba(238, 191, 112, 0.04);
+	inset: 0;
+	background: url('../photo/Logo.jpg') center / contain no-repeat;
+	opacity: 0.3;
 	content: '';
 }
 
@@ -33,10 +29,11 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: #f8f5ec;
+	color: #000;
 	font-size: 20px;
 	font-weight: 600;
 	letter-spacing: 0.02em;
+	white-space: nowrap;
 }
 
 .brand-mark-icon {
@@ -44,6 +41,7 @@
 	width: 30px;
 	height: 30px;
 	place-items: center;
+	object-fit: cover;
 	color: #17463e;
 	background: #e9bb72;
 	border-radius: 50% 50% 50% 5px;
@@ -53,9 +51,18 @@
 }
 
 .showcase-copy {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: calc(100% - 52px);
 	max-width: 440px;
-	margin: 10vh 0;
+	margin: 0;
+	transform: translate(-50%, -50%);
+	text-align: center;
 }
 
 .eyebrow {
@@ -67,8 +74,8 @@
 	text-transform: uppercase;
 }
 
-.showcase-copy .eyebrow {
-	color: #e9bb72;
+.showcase-note-spacer {
+	height: 16px;
 }
 
 h1,
@@ -80,34 +87,13 @@ p {
 h1 {
 	max-width: 390px;
 	margin-bottom: 26px;
-	color: #fffaf0;
+	color: #000;
 	font-family: 'Playfair Display', Georgia, serif;
-	font-size: clamp(42px, 5vw, 68px);
-	font-weight: 500;
+	font-size: clamp(50px, 6vw, 76px);
+	font-weight: 600;
 	letter-spacing: 0;
 	line-height: 0.98;
-}
-
-.showcase-description {
-	max-width: 350px;
-	color: #b6c9bf;
-	font-size: 15px;
-	line-height: 1.7;
-}
-
-.showcase-note {
-	z-index: 1;
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	color: #a8c0b5;
-	font-size: 12px;
-}
-
-.note-line {
-	width: 34px;
-	height: 1px;
-	background: #e9bb72;
+	text-wrap: balance;
 }
 
 .login-panel {
@@ -246,7 +232,7 @@ a:hover {
 	border: 0;
 	border-radius: 3px;
 	cursor: pointer;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 700;
 	transition: background 160ms ease, transform 160ms ease;
 }
@@ -286,6 +272,10 @@ a:hover {
 	font-weight: 600;
 }
 
+.forgot-button {
+	font-size: 11px;
+}
+
 .text-button:hover {
 	text-decoration: underline;
 }
@@ -312,27 +302,18 @@ a:hover {
 		padding: 28px 26px 34px;
 	}
 
-	.login-showcase .brand-mark,
-	.showcase-note {
+	.showcase-note-spacer {
 		display: none;
 	}
 
 	.showcase-copy {
-		margin: 26px 0 0;
-	}
-
-	.showcase-copy .eyebrow {
-		margin-bottom: 12px;
+		margin: 0;
 	}
 
 	h1 {
 		max-width: 300px;
 		margin-bottom: 0;
-		font-size: 42px;
-	}
-
-	.showcase-description {
-		display: none;
+		font-size: 50px;
 	}
 
 	.login-panel {
