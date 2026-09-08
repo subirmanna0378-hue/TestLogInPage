@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import logo from '../photo/Logo.jpg'
+import logo from '../photo/background_pic.jpeg'
 
 const App = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -38,23 +38,17 @@ const App = () => {
   return (
     <main className="login-page">
       <section className="login-showcase" aria-label="Product introduction">
-        <div className="brand-mark" aria-label="Ablet Biotech pvt. Ltd home">
-          <img className="brand-mark-icon" src={logo} alt="" />
-          <span>Ablet Biotech pvt. Ltd</span>
-        </div>
-
-        <div className="showcase-copy">
-          <h1>We Lead to Excellence</h1>
-        </div>
-
         <div className="showcase-note-spacer" aria-hidden="true" />
       </section>
 
       <section className="login-panel">
         <div className="login-card">
+          <div className="brand-mark login-panel-brand" aria-label="Ablet Biotech pvt. Ltd home">
+            <img className="brand-mark-icon" src={logo} alt="" />
+            <span>Ablet Biotech pvt. Ltd</span>
+          </div>
           <div className="form-heading">
-            <p className="eyebrow">{authMode === 'signin' ? 'Welcome back' : authMode === 'signup' ? 'Start your journey' : 'Reset access'}</p>
-            <h2>{authMode === 'signin' ? 'Sign in to Ablet Biotech pvt. Ltd' : authMode === 'signup' ? 'Welcome to Ablet Biotech pvt. Ltd' : 'Reset your password'}</h2>
+            <h2 className={authMode === 'signin' ? 'signin-heading' : ''}>{authMode === 'signin' ? '\u201cWe lead to Excellence.\u201d' : authMode === 'signup' ? 'Welcome to Ablet Biotech pvt. Ltd' : 'Reset your password'}</h2>
           </div>
 
           <form onSubmit={handleSubmit}>
