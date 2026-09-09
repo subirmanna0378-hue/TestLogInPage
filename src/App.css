@@ -20,7 +20,7 @@
 	position: absolute;
 	inset: 0;
 	background: url('../photo/background_pic.jpeg') center / contain no-repeat;
-	opacity: 0.7;
+	opacity: 1;
 	content: '';
 }
 
