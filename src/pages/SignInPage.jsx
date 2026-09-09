@@ -13,7 +13,7 @@ const SignInPage = () => {
   }
 
   return (
-    <AuthLayout title="\u201cWe lead to Excellence.\u201d" titleClassName="signin-heading">
+    <AuthLayout title="“We lead to Excellence.”" titleClassName="signin-heading">
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email address</label>
         <input id="email" name="email" type="email" placeholder="you@example.com" autoComplete="email" required />
@@ -35,7 +35,6 @@ const SignInPage = () => {
         {message && <p className="form-message" role="status">{message}</p>}
       </form>
       <p className="signup-prompt">New to Ablet Biotech pvt. Ltd? <Link className="text-button" to="/signup">Create an account</Link></p>
-      <Link className="text-button" to="/change-account">Change account</Link>
     </AuthLayout>
   )
 }
