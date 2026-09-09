@@ -89,7 +89,169 @@ p {
 .form-heading h2.signin-heading {
 	font-size: 32px;
 	white-space: nowrap;
+	position: relative;
+	color: transparent;
 }
+
+.form-heading h2.signin-heading::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #26312d;
+	content: '';
+	animation: typewriter 4s steps(1, end) infinite;
+}
+
+@keyframes typewriter {
+	0% {
+		content: '_';
+	}
+	3.125% {
+		content: '“_';
+	}
+	6.25% {
+		content: '“W_';
+	}
+	9.375% {
+		content: '“We_';
+	}
+	12.5% {
+		content: '“We _';
+	}
+	15.625% {
+		content: '“We l_';
+	}
+	18.75% {
+		content: '“We le_';
+	}
+	21.875% {
+		content: '“We lea_';
+	}
+	25% {
+		content: '“We lead_';
+	}
+	28.125% {
+		content: '“We lead _';
+	}
+	31.25% {
+		content: '“We lead t_';
+	}
+	34.375% {
+		content: '“We lead to_';
+	}
+	37.5% {
+		content: '“We lead to _';
+	}
+	40.625% {
+		content: '“We lead to E_';
+	}
+	43.75% {
+		content: '“We lead to Ex_';
+	}
+	46.875% {
+		content: '“We lead to Exc_';
+	}
+	50% {
+		content: '“We lead to Exce_';
+	}
+	53.125% {
+		content: '“We lead to Excel_';
+	}
+	56.25% {
+		content: '“We lead to Excell_';
+	}
+	59.375% {
+		content: '“We lead to Excelle_';
+	}
+	62.5% {
+		content: '“We lead to Excellen_';
+	}
+	65.625% {
+		content: '“We lead to Excellenc_';
+	}
+	68.75% {
+		content: '“We lead to Excellence_';
+	}
+	71.875% {
+		content: '“We lead to Excellence._';
+	}
+	73.5% {
+		content: '“We lead to Excellence.”_';
+	}
+	75% {
+		content: '“We lead to Excellence.”_';
+	}
+	87.5% {
+		content: '“We lead to Excellence.”_';
+	}
+	87.55% {
+		content: '“We lead to Excellence._';
+	}
+	88.07% {
+		content: '“We lead to Excellenc_';
+	}
+	88.59% {
+		content: '“We lead to Excellen_';
+	}
+	89.11% {
+		content: '“We lead to Excelle_';
+	}
+	89.63% {
+		content: '“We lead to Excell_';
+	}
+	90.15% {
+		content: '“We lead to Excel_';
+	}
+	90.67% {
+		content: '“We lead to Exce_';
+	}
+	91.19% {
+		content: '“We lead to Exc_';
+	}
+	91.71% {
+		content: '“We lead to Ex_';
+	}
+	92.23% {
+		content: '“We lead to E_';
+	}
+	92.75% {
+		content: '“We lead to _';
+	}
+	93.27% {
+		content: '“We lead to_';
+	}
+	93.79% {
+		content: '“We lead t_';
+	}
+	94.31% {
+		content: '“We lead _';
+	}
+	94.83% {
+		content: '“We lea_';
+	}
+	95.35% {
+		content: '“We le_';
+	}
+	95.87% {
+		content: '“We l_';
+	}
+	96.39% {
+		content: '“We _';
+	}
+	96.91% {
+		content: '“We_';
+	}
+	97.43% {
+		content: '“W_';
+	}
+	97.95% {
+		content: '“_';
+	}
+	100% {
+		content: '_';
+	}
+}
+
 
 form > label,
 .label-row label {
